@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Inconf Live Slides Demo</title>
+    <title>Concise Live Slides Demo</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="180x180" href="/liveslides/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/liveslides/ico/favicon-32x32.png">
@@ -14,16 +14,12 @@
     <script src="https://unpkg.com/@daily-co/daily-js"></script>
   </head>
   <body onload="main()">
-    <div id="controls">
-    </div>
+    <div id="controls"></div>
     <div id="videos"></div>
     <div id="audios"></div>
     <script>
-	    let shareButton;
       async function main() {
-
         const ROOM_URL = "https://timwbodine.daily.co/Screenshare";
-
         window.call = DailyIframe.createCallObject({
           url: ROOM_URL,
           subscribeToTracksAutomatically: true,
@@ -72,21 +68,10 @@
         }
       }
 
-      async function joinPresenter() {
-        await joinRoomOwner();
-      }
-
       async function joinAudience() {
         await joinRoom();
       }
 
-      async function joinRoomOwner() {
-        await call.join({
-          audioSource: false,
-          videoSource: false,
-		token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyIjoiU2NyZWVuc2hhcmUiLCJzcyI6dHJ1ZSwibyI6dHJ1ZSwiZCI6ImVjZDgyY2FkLWE3NWUtNGY4Ny1hNjQ5LTkyNTU2NDY4OThkMSIsImlhdCI6MTY4MTMwNTQ0OH0.-wOfz9xyR03OTZYnMS2G6ZtUng39rFloQaMGeiCLXbM"
-        });
-      }
       async function joinRoom() {
         await call.join({
           audioSource: false,
@@ -101,9 +86,6 @@
         await call.leave();
       }
       
-      async function startScreenshare() {
-        await call.startScreenShare();
-      }
     </script>
   </body>
 </html>
